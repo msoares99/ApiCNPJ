@@ -1,0 +1,150 @@
+object Form1: TForm1
+  Left = 0
+  Top = 0
+  Caption = 'Form1'
+  ClientHeight = 359
+  ClientWidth = 334
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  DesignerMasterStyle = 0
+  object edtCNPJ: TEdit
+    Touch.InteractiveGestures = [LongTap, DoubleTap]
+    TabOrder = 11
+    TextSettings.Font.Size = 14.000000000000000000
+    TextSettings.Font.StyleExt = {00060000000000000004000000}
+    Position.X = 32.000000000000000000
+    Position.Y = 24.000000000000000000
+    Size.Width = 132.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
+    TextPrompt = 'Digite o CNPJ'
+    StyledSettings = [Family, FontColor]
+  end
+  object spPESQUISA: TSpeedButton
+    Position.X = 168.000000000000000000
+    Position.Y = 24.000000000000000000
+    Size.Width = 41.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
+    StyleLookup = 'searchtoolbuttonbordered'
+    Text = 'spPESQUISA'
+    OnClick = spPESQUISAClick
+  end
+  object edtRAZAO: TEdit
+    Touch.InteractiveGestures = [LongTap, DoubleTap]
+    TabOrder = 10
+    TextSettings.Font.Size = 14.000000000000000000
+    TextSettings.Font.StyleExt = {00060000000000000004000000}
+    Position.X = 32.000000000000000000
+    Position.Y = 64.000000000000000000
+    Size.Width = 285.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
+    TextPrompt = 'Raz'#227'o Social'
+    StyledSettings = [Family, FontColor]
+  end
+  object edtLOGRADOURO: TEdit
+    Touch.InteractiveGestures = [LongTap, DoubleTap]
+    TabOrder = 9
+    TextSettings.Font.Size = 14.000000000000000000
+    TextSettings.Font.StyleExt = {00060000000000000004000000}
+    Position.X = 32.000000000000000000
+    Position.Y = 96.000000000000000000
+    Size.Width = 225.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
+    TextPrompt = 'Logradouro'
+    StyledSettings = [Family, FontColor]
+  end
+  object edtNUMERO: TEdit
+    Touch.InteractiveGestures = [LongTap, DoubleTap]
+    TabOrder = 8
+    TextSettings.Font.Size = 14.000000000000000000
+    TextSettings.Font.StyleExt = {00060000000000000004000000}
+    Position.X = 268.000000000000000000
+    Position.Y = 96.000000000000000000
+    Size.Width = 49.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
+    TextPrompt = 'N'#176
+    StyledSettings = [Family, FontColor]
+  end
+  object edtCEP: TEdit
+    Touch.InteractiveGestures = [LongTap, DoubleTap]
+    TabOrder = 7
+    TextSettings.Font.Size = 14.000000000000000000
+    TextSettings.Font.StyleExt = {00060000000000000004000000}
+    Position.X = 32.000000000000000000
+    Position.Y = 128.000000000000000000
+    Size.Width = 145.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
+    TextPrompt = 'CEP'
+    StyledSettings = [Family, FontColor]
+  end
+  object edtBAIRRO: TEdit
+    Touch.InteractiveGestures = [LongTap, DoubleTap]
+    TabOrder = 6
+    TextSettings.Font.Size = 14.000000000000000000
+    TextSettings.Font.StyleExt = {00060000000000000004000000}
+    Position.X = 184.000000000000000000
+    Position.Y = 128.000000000000000000
+    Size.Width = 134.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
+    TextPrompt = 'Bairro'
+    StyledSettings = [Family, FontColor]
+  end
+  object edtCIDADE: TEdit
+    Touch.InteractiveGestures = [LongTap, DoubleTap]
+    TabOrder = 5
+    TextSettings.Font.Size = 14.000000000000000000
+    TextSettings.Font.StyleExt = {00060000000000000004000000}
+    Position.X = 32.000000000000000000
+    Position.Y = 160.000000000000000000
+    Size.Width = 161.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
+    TextPrompt = 'Cidade'
+    StyledSettings = [Family, FontColor]
+  end
+  object RESTClient1: TRESTClient
+    BaseURL = 'https://receitaws.com.br/v1/cnpj/41133613000184'
+    Params = <>
+    Left = 48
+    Top = 208
+  end
+  object RESTRequest1: TRESTRequest
+    AssignedValues = [rvConnectTimeout, rvReadTimeout]
+    Client = RESTClient1
+    Params = <>
+    Response = RESTResponse1
+    Left = 120
+    Top = 208
+  end
+  object RESTResponse1: TRESTResponse
+    Left = 200
+    Top = 208
+  end
+  object RESTResponseDataSetAdapter1: TRESTResponseDataSetAdapter
+    Dataset = FDMemTable1
+    FieldDefs = <>
+    Response = RESTResponse1
+    TypesMode = Rich
+    Left = 48
+    Top = 264
+  end
+  object FDMemTable1: TFDMemTable
+    FetchOptions.AssignedValues = [evMode]
+    FetchOptions.Mode = fmAll
+    ResourceOptions.AssignedValues = [rvSilentMode]
+    ResourceOptions.SilentMode = True
+    UpdateOptions.AssignedValues = [uvUpdateChngFields, uvUpdateMode, uvLockMode, uvLockPoint, uvLockWait, uvRefreshMode, uvFetchGeneratorsPoint, uvCheckRequired, uvCheckReadOnly, uvCheckUpdatable]
+    UpdateOptions.LockWait = True
+    UpdateOptions.FetchGeneratorsPoint = gpNone
+    UpdateOptions.CheckRequired = False
+    Left = 200
+    Top = 264
+  end
+end
